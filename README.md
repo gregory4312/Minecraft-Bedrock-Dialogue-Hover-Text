@@ -6,7 +6,7 @@ A Visual Studio Code extension that makes working with Minecraft Bedrock dialogu
 
 - Automatically detects Minecraft Bedrock project structure
 - Shows translated text when hovering over dialogue keys in JSON files
-- Works with dialogue files in `/BP/dialogues/` or `/behavior_packs/*/dialogues/`
+- Works with dialogue files in `/BP/dialogue/` or `/behavior_packs/*/dialogue/`
 - Supports translation files in `/RP/texts/en_US.lang` or `/resource_packs/*/texts/en_US.lang`
 - Updates translations in real-time when language files are modified
 
