@@ -1,14 +1,15 @@
 {
   "name": "minecraft-dialogue-translator",
-  "displayName": "Minecraft Bedrock Dialogue Hover Text",
+  "displayName": "Minecraft Dialogue Translator",
   "description": "Translates dialogue keys in Minecraft Bedrock dialogue files",
   "version": "0.1.0",
-  "publisher": "gregory4312",
+  "publisher": "YourName",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gregory4312/minecraft-bedrock-dialogue-hover-text"
+    "url": "https://github.com/yourusername/minecraft-dialogue-translator"
   },
   "license": "MIT",
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.60.0"
   },
@@ -16,9 +17,8 @@
     "Other"
   ],
   "activationEvents": [
-    "workspaceContains:BP/dialogue/**/*.json",
-    "workspaceContains:behavior_packs/*/dialogue/**/*.json",
-    "onLanguage:json"
+    "workspaceContains:BP/dialogues/**/*.json",
+    "workspaceContains:behavior_packs/*/dialogues/**/*.json"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -34,20 +34,9 @@
           "type": "string",
           "default": "RP/texts/en_US.lang",
           "description": "Path to the language file relative to workspace root"
-        },
-        "minecraftDialogueTranslator.debug": {
-          "type": "boolean",
-          "default": false,
-          "description": "Enable debug logging"
         }
       }
-    },
-    "commands": [
-      {
-        "command": "minecraftDialogueTranslator.debugExtension",
-        "title": "Debug Minecraft Dialogue Translator"
-      }
-    ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
