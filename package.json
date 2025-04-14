@@ -3,6 +3,12 @@
   "displayName": "Minecraft Bedrock Dialogue Hover Text",
   "description": "Translates dialogue keys in Minecraft Bedrock dialogue files",
   "version": "0.1.0",
+  "publisher": "gregory4312",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gregory4312/minecraft-bedrock-dialogue-hover-text"
+  },
+  "license": "MIT",
   "engines": {
     "vscode": "^1.60.0"
   },
