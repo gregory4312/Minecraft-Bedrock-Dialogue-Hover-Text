@@ -2,8 +2,8 @@
   "name": "minecraft-dialogue-translator",
   "displayName": "Minecraft Dialogue Translator",
   "description": "Translates dialogue keys in Minecraft Bedrock dialogue files",
-  "version": "0.1.0",
-  "publisher": "YourName",
+  "version": "0.1.5",
+  "publisher": "gregory4312",
   "repository": {
     "type": "git",
     "url": "https://github.com/yourusername/minecraft-dialogue-translator"
@@ -17,8 +17,8 @@
     "Other"
   ],
   "activationEvents": [
-    "workspaceContains:BP/dialogues/**/*.json",
-    "workspaceContains:behavior_packs/*/dialogues/**/*.json"
+    "workspaceContains:BP/dialogue/**/*.json",
+    "workspaceContains:behavior_packs/*/dialogue/**/*.json"
   ],
   "main": "./out/extension.js",
   "contributes": {
