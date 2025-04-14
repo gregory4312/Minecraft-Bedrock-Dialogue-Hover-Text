@@ -1,22 +1,29 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 import { DialogueProvider } from './dialogueProvider';
+import { DebugHelper } from './debug';
+
+// Create a debug helper instance
+const debugHelper = new DebugHelper();
 
 export async function activate(context: vscode.ExtensionContext) {
-    console.log('Activating Minecraft Dialogue Translator extension');
+    debugHelper.log('Activating Minecraft Dialogue Translator extension');
 
     // Get workspace root
     if (!vscode.workspace.workspaceFolders || vscode.workspace.workspaceFolders.length === 0) {
-        console.log('No workspace folders found');
+        debugHelper.log('No workspace folders found');
         return;
     }
 
     const workspaceRoot = vscode.workspace.workspaceFolders[0].uri.fsPath;
-    const dialogueProvider = new DialogueProvider(workspaceRoot);
+    debugHelper.log(`Workspace root: ${workspaceRoot}`);
+    
+    const dialogueProvider = new DialogueProvider(workspaceRoot, debugHelper);
     
     // Initialize the dialogue provider
     const initialized = await dialogueProvider.initialize();
     if (!initialized) {
+        debugHelper.log('Failed to initialize dialogue provider');
         return;
     }
     
@@ -25,8 +32,11 @@ export async function activate(context: vscode.ExtensionContext) {
         { language: 'json', scheme: 'file' },
         {
             provideHover(document, position, _token) {
+                debugHelper.log(`Hover triggered at ${position.line}:${position.character} in ${document.uri.fsPath}`);
+                
                 // Only process relevant files
                 if (!dialogueProvider.isRelevantDocument(document)) {
+                    debugHelper.log(`Not a relevant document: ${document.uri.fsPath}`);
                     return undefined;
                 }
                 
@@ -84,9 +94,16 @@ export async function activate(context: vscode.ExtensionContext) {
         })
     );
     
-    console.log('Minecraft Dialogue Translator activated');
+    // Register debugging command
+    context.subscriptions.push(
+        vscode.commands.registerCommand('minecraftDialogueTranslator.debugExtension', () => {
+            debugHelper.diagnoseExtension(workspaceRoot);
+        })
+    );
+    
+    debugHelper.log('Minecraft Dialogue Translator activated');
 }
 
 export function deactivate() {
-    console.log('Deactivating Minecraft Dialogue Translator extension');
+    debugHelper.log('Deactivating Minecraft Dialogue Translator extension');
 }

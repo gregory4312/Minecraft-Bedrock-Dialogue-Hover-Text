@@ -17,7 +17,8 @@
   ],
   "activationEvents": [
     "workspaceContains:BP/dialogue/**/*.json",
-    "workspaceContains:behavior_packs/*/dialogue/**/*.json"
+    "workspaceContains:behavior_packs/*/dialogue/**/*.json",
+    "onLanguage:json"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -33,9 +34,20 @@
           "type": "string",
           "default": "RP/texts/en_US.lang",
           "description": "Path to the language file relative to workspace root"
+        },
+        "minecraftDialogueTranslator.debug": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable debug logging"
         }
       }
-    }
+    },
+    "commands": [
+      {
+        "command": "minecraftDialogueTranslator.debugExtension",
+        "title": "Debug Minecraft Dialogue Translator"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
