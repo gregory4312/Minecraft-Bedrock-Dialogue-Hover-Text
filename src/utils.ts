@@ -165,7 +165,7 @@ export function readDirectory(dirPath: string): Promise<string[]> {
  * Check if a file is a dialogue JSON file
  */
 export function isDialogueFile(filePath: string): boolean {
-    return filePath.includes('/dialogues/') && filePath.endsWith('.json');
+    return filePath.includes('/dialogue/') && filePath.endsWith('.json');
 }
 
 /**

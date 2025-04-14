@@ -16,8 +16,8 @@
     "Other"
   ],
   "activationEvents": [
-    "workspaceContains:BP/dialogues/**/*.json",
-    "workspaceContains:behavior_packs/*/dialogues/**/*.json"
+    "workspaceContains:BP/dialogue/**/*.json",
+    "workspaceContains:behavior_packs/*/dialogue/**/*.json"
   ],
   "main": "./out/extension.js",
   "contributes": {
